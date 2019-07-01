@@ -45,3 +45,19 @@ function remove(list, item) {
         }
     }
 }
+
+function reverse(listNode) {
+    if (listNode === null) {
+        return null;
+    }
+
+    if (listNode.next === null) {
+        return listNode;
+    }
+
+    var nextNode = listNode.next;
+    listNode.next = null;
+    var rest = reverse(nextNode);
+    nextNode.next = listNode;
+    return rest;
+}
